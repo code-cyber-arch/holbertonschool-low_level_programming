@@ -11,7 +11,7 @@
 int main(void)
 {
 	 /* Using puts to print */
-	printf("%s\n","with proper grammar, but the outcome is a piece of art,");
+	printf("%s\n", "with proper grammar, but the outcome is a piece of art,");
 	/* returns 0 upon successful execution */
 	return (0);
 }
