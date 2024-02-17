@@ -1,1 +1,1 @@
-This all about functions and nested loops in c programming
+This is all about Variables, if...else and while statments
