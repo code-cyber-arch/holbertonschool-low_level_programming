@@ -18,7 +18,7 @@ void times_table(void)
 		for (j = 0; j <= 9; j++)
 		{
 			if (j == 0)
-				printf("%d,", i * j);
+				_putchar(i * j + '0');
 			else if (j == 9)
 				printf("%3d", i * j);
 			else
