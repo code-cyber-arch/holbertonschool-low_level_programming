@@ -16,6 +16,7 @@ int _atoi(char *s)
 	int i;
 	int result = 0;
 	int sign = 1;
+	int sign_1 = -1;
 	int sign_num = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
@@ -24,6 +25,11 @@ int _atoi(char *s)
 		{
 			if (result > INT_MAX / 10 ||
 					(result == INT_MAX / 10 && (s[i] - '0') > INT_MAX % 10))
+			{
+				return (-1);
+			}
+			else if (result * sign_1 < INT_MIN / 10 ||
+					(result * sign_1 == INT_MIN / 10 && (s[i] - '0') < INT_MIN % 10))
 			{
 				return (-1);
 			}
@@ -39,10 +45,5 @@ int _atoi(char *s)
 	if (sign_num % 2 != 0)
 		sign = -1;
 	result = result * sign;
-	if (result < INT_MIN / 10 ||
-			(result == INT_MIN / 10 && (s[i] - '0') < INT_MIN % 10))
-	{
-		return (-1);
-	}
 	return (result);
 }
