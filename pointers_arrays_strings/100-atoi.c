@@ -38,5 +38,11 @@ int _atoi(char *s)
 	}
 	if (sign_num % 2 != 0)
 		sign = -1;
-	return (result * sign);
+	result = result * sign;
+	if (result < INT_MIN / 10 ||
+			(result == INT_MIN / 10 && (s[i] - '0') < INT_MIN % 10))
+	{
+		return (-1);
+	}
+	return (result);
 }
