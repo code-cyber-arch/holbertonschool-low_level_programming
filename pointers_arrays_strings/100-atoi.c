@@ -21,6 +21,11 @@ int _atoi(char *s)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
+			if (result > INT_MAX / 10 ||
+					(result == INT_MAX / 10 && (s[i] - '0') > INT_MAX % 10))
+			{
+				return (-1);
+			}
 			result = result * 10 + (s[i] - '0');
 			if (!(s[i + 1] >= '0' && s[i + 1] <= '9'))
 			{
