@@ -27,8 +27,6 @@ char *cap_string(char *s)
 		else if ((s[i - 1] == ' ' || s[i - 1] == '\t' || s[i - 1] == '.') &&
 				(s[i] >= 'a' && s[i] <= 'z'))
 		{
-			if (s[i - 1] == '\t')
-				s[i - 1] = ' ';
 			s[i] = s[i] - 32;
 		}
 	}
