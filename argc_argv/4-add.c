@@ -17,10 +17,20 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		if (isdigit(argv[i][0]))
+		int j = 0;
+
+		while (argv[i][j] != '\0')
 		{
-			if (atoi(argv[i]) > 0)
-				sum += atoi(argv[i]);
+			if (isdigit(argv[i][j]))
+				j++;
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		if (atoi(argv[i]) > 0)
+			sum += atoi(argv[i]);
 		}
 		else
 		{
