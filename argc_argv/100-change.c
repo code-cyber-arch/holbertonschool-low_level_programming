@@ -63,6 +63,11 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	num = atoi(argv[1]);
+	if (num <= 0)
+	{
+		printf("%d\n", 0);
+		return (1);
+	}
 	sum = get_coins(num, sum);
 	printf("%d\n", sum);
 	return (0);
