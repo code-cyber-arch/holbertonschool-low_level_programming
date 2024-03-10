@@ -13,7 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-	int sum = 0, num = atoi(argv[1]);
+	int sum = 1, num = atoi(argv[1]);
 
 	if (argc != 2)
 	{
@@ -21,15 +21,13 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	if (num <= 0)
-		printf("%d\n", 0);
-	while (num > 0)
 	{
-		if (num < 2)
-		{
-			sum += 1;
-			num = 0;
-		}
-		else if (num < 5)
+		printf("%d\n", 0);
+		return (1);
+	}
+	while (num > 1)
+	{
+		if (num < 5)
 		{
 			sum += (num / 2);
 			num = num % 2;
