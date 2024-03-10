@@ -3,8 +3,49 @@
 #include <ctype.h>
 
 /**
- * main - Calculates the minimum number of
- * coins to make change for a given amount.
+ * get_coins - Calculates the minimum number of coins needed for change.
+ * @num: Amount to make change for.
+ * @sum: Current sum of coins.
+ *
+ * Return: Minimum number of coins needed for change.
+ *         If num is negative, prints "Error" and exits with status 1.
+ */
+
+int get_coins(int num, int sum)
+{
+	if (num < 0)
+	{
+		printf("Error\n");
+		exit(1);
+	}
+	if (num == 0)
+	{
+		return (sum);
+	}
+	if (num < 2)
+	{
+		return (get_coins(0, sum + 1));
+	}
+	else if (num < 5)
+	{
+		return (get_coins(num % 2, sum + (num / 2)));
+	}
+	else if (num < 10)
+	{
+		return (get_coins(num % 5, sum + (num / 5)));
+	}
+	else if (num < 25)
+	{
+		return (get_coins(num % 10, sum + (num / 10)));
+	}
+	else
+	{
+		return (get_coins(num % 25, sum + (num / 25)));
+	}
+}
+
+/**
+ * main - Calculates the minimum number of coins needed for change.
  * @argc: Number of arguments.
  * @argv: Array of argument strings.
  *
@@ -13,41 +54,16 @@
 
 int main(int argc, char *argv[])
 {
-	int sum = 1, num = atoi(argv[1]);
+	int sum = 0;
+	int num;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	if (num <= 0)
-	{
-		printf("%d\n", 0);
-		return (1);
-	}
-	while (num > 1)
-	{
-		if (num < 5)
-		{
-			sum += (num / 2);
-			num = num % 2;
-		}
-		else if (num < 10)
-		{
-			sum += (num / 5);
-			num = num % 5;
-		}
-		else if (num < 25)
-		{
-			sum += (num / 10);
-			num = num % 10;
-		}
-		else
-		{
-			sum += (num / 25);
-			num = num % 25;
-		}
-	}
+	num = atoi(argv[1]);
+	sum = get_coins(num, sum);
 	printf("%d\n", sum);
 	return (0);
 }
