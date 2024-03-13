@@ -13,11 +13,14 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog;
-	int name_length = 0;
-	int owner_length = 0;
-	int i;
+	int name_length = 0, owner_length = 0, i;
 
 	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
+	{
+		free(dog);
+		return (NULL);
+	}
 	while (name[name_length] != '\0')
 	{
 		name_length++;
