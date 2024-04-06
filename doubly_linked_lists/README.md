@@ -77,6 +77,15 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 3-add_dnodeint_end.c 0-p
 ```
 ## Sum list
 
+This C function, sum\_dlistint, calculates the sum of all the data (n) in a doubly linked list. Here's a brief explanation:
+- Initializes a sum variable to 0.
+- Iterates through the list, adding each node's data to the sum.
+- Returns the total sum of all data in the list.
+###
+Compile using the following code:
+```sh
+gcc -Wall -pedantic -Werror -Wextra 6-main.c -std=gnu89 3-add_dnodeint_end.c 4-free_dlistint.c 6-sum_dlistint.c -o i
+```
 ## Insert at index
 
 ## Delete at index
