@@ -102,3 +102,16 @@ Compile using the following code:
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 7-main.c 2-add_dnodeint.c 3-add_dnodeint_end.c 0-print_dlistint.c 4-free_dlistint.c 7-insert_dnodeint.c -o j
 ```
 ## Delete at index
+
+This C function, delete\_dnodeint\_at\_index, deletes the node at a specified index in a doubly linked list. Here's a brief explanation:
+- If the list is empty, it returns -1.
+- Iterates through the list to find the node at the specified index.
+- If the index is out of bounds, it returns -1.
+- If the node to delete is the head, it updates the head and the previous pointer of the new head if it exists.
+- If the node to delete is not the head, it adjusts the pointers of the previous and next nodes to skip over the node to be deleted.
+- Frees the memory allocated for the node to be deleted and returns 1.
+###
+Compile using the following code:
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 8-main.c 3-add_dnodeint_end.c 0-print_dlistint.c 4-free_dlistint.c 8-delete_dnodeint.c -o k
+```
