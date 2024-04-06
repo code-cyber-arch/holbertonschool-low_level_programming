@@ -24,6 +24,12 @@ Compile using the following code:
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-binary_to_uint.c -o a
 ```
 ## Print the binary representation of a number
+
+This function, print\_binary, prints the binary representation of an unsigned long integer n:
+- Recursively prints the binary representation of an unsigned long integer n.
+- If n is greater than 1, the function calls itself with n shifted right by 1 bit (n >> 1) to print higher order bits.
+- After the recursive call, it prints the least significant bit of n by ANDing it with 1 (n & 1) and adding '0' to convert it to a character.
+- This process prints the binary digits of n in reverse order.
 ###
 Compile using the following code:
 ```sh
