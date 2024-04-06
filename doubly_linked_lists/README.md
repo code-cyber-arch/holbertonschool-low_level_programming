@@ -62,7 +62,7 @@ This C function, free\_dlistint, frees the memory allocated for a doubly linked 
 ###
 Compile using the following code:
 ```sh
-gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 3-add_dnodeint_end.c 0-print_dlistint.c 4-free_d
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 3-add_dnodeint_end.c 0-print_dlistint.c 4-free_dlistint.c -o e
 //test using this line
 valgrind ./e
 ```
