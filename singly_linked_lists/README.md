@@ -16,7 +16,6 @@ Complie using this code:
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-print_list.c -o a
 ```
-<br>
 ## List length
 This C function, list\_len, calculates the length of a singly linked list, i.e., the number of elements (nodes) in the list. Here's how it works in brief:
 
@@ -30,7 +29,6 @@ This C function, list\_len, calculates the length of a singly linked list, i.e.,
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-list_len.c -o b
 ```
-<br>
 ## Add node
 
 ## Add node at the end
