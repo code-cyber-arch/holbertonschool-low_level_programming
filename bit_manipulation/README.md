@@ -9,6 +9,15 @@ Bit manipulation in C involves using bitwise operators to manipulate individual 
 ###
 These operators are commonly used in tasks like setting, clearing, or toggling specific bits, extracting or setting groups of bits, or performing arithmetic operations at the bit level.
 ## Convert a binary number
+This C function converts a binary number represented as a string to an unsigned integer. Here's a breakdown of its implementation:
+- Converts a binary number string to an unsigned integer.
+- Initializes variables for the decimal number (num) and bit position value (bit\_position\_value).
+- Returns 0 if the input string pointer is NULL or if the string is empty.
+- Calculates the length of the string.
+- Iterates through the string from the last character to the first.
+- Checks if each character is '0' or '1'; if not, returns 0.
+- Computes the decimal value of the binary number using bitwise operations and updates num.
+- Returns the calculated decimal value num.
 ###
 Compile using the following code:
 ```sh
