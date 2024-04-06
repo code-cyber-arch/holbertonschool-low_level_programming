@@ -55,6 +55,17 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-add_dnodeint_end.c 0-p
 ```
 ## Free list
 
+This C function, free\_dlistint, frees the memory allocated for a doubly linked list. Here's a brief explanation:
+- Iterates through the list and frees each node's memory.
+- Uses a temporary variable to avoid losing track of the list.
+- Stops when reaching the end of the list.
+###
+Compile using the following code:
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 3-add_dnodeint_end.c 0-print_dlistint.c 4-free_d
+//test using this line
+valgrind ./e
+```
 ## Get node at index
 
 ## Sum list
