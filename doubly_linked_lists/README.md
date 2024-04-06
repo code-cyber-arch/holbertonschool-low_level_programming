@@ -87,5 +87,18 @@ Compile using the following code:
 gcc -Wall -pedantic -Werror -Wextra 6-main.c -std=gnu89 3-add_dnodeint_end.c 4-free_dlistint.c 6-sum_dlistint.c -o i
 ```
 ## Insert at index
-
+This C function, insert\_dnodeint\_at\_index, inserts a new node at a specified index in a doubly linked list. Here's a brief explanation:
+- Initializes a temporary pointer tmp to the head of the list and a new pointer new.
+- If the index is 0, it calls add\_dnodeint to insert the new node at the beginning of the list and returns its result.
+- Enters a loop to find the node at the index before the insertion point.
+- If the loop ends prematurely (i.e., tmp becomes NULL), it means the index is out of bounds, so it returns NULL.
+- If the insertion point is at the end of the list, it calls add\_dnodeint\_end to insert the new node at the end and returns its result.
+- Allocates memory for the new node and returns NULL if allocation fails.
+- Sets the value of the new node and adjusts the pointers of adjacent nodes to insert it at the specified index.
+- Returns a pointer to the newly inserted node.
+###
+Compile using the following code:
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 7-main.c 2-add_dnodeint.c 3-add_dnodeint_end.c 0-print_dlistint.c 4-free_dlistint.c 7-insert_dnodeint.c -o j
+```
 ## Delete at index
