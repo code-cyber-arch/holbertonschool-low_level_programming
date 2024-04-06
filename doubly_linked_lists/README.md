@@ -27,6 +27,19 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-dlistint_len.c -o b
 ```
 ## Add node
 
+This C function, add\_dnodeint, adds a new node at the beginning of a doubly linked list. Here's a brief explanation:
+- Allocates memory for a new node and handles allocation failure.
+- Assigns the value to the new node's data field.
+- Sets the new node's previous pointer to NULL.
+- Sets the new node's next pointer to the current head of the list.
+- Updates the previous pointer of the current head, if it exists, to point to the new node.
+- Updates the head of the list to point to the new node.
+- Returns a pointer to the new node.
+###
+Compile using the following code:
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-add_dnodeint.c 0-print_dlistint.c -o c
+```
 ## Add node at the end
 
 ## Free list
