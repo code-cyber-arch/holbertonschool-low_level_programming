@@ -67,7 +67,14 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 3-add_dnodeint_end.c 0-p
 valgrind ./e
 ```
 ## Get node at index
-
+This C function, get\_dnodeint\_at\_index, returns the node at a specified index in a doubly linked list. Here's an explanation:
+- Iterates through the list until reaching the specified index.
+- Returns a pointer to the node at that index or NULL if the index is out of bounds.
+###
+Compile using the following code:
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 3-add_dnodeint_end.c 0-print_dlistint.c 4-free_dlistint.c 5-get_dnodeint.c -o h
+```
 ## Sum list
 
 ## Insert at index
