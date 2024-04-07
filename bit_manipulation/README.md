@@ -36,6 +36,12 @@ Compile using the following code:
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-print_binary.c _putchar.c -o b
 ```
 ## Return the value of a bit at a given index
+
+This function, get\_bit:
+- Checks if the index is greater than or equal to the number of bits in an unsigned long integer (sizeof(unsigned long int) * 8); if true, returns -1 as the index is out of range.
+- Uses a bitwise AND operation (&) between the number n and a bit mask created by left-shifting 1 by the index (1 << index) to extract the bit at the specified index.
+- If the result of the bitwise AND operation is 0, returns 0, indicating that the bit at the index is 0.
+- Otherwise, returns 1, indicating that the bit at the index is 1.
 ###
 Compile using the following code:
 ```sh
