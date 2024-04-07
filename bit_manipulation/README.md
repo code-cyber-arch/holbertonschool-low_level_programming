@@ -59,6 +59,10 @@ Compile using the following code:
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-set_bit.c -o d
 ```
 ## Set the value of a bit to 0 at a given index
+This function, clear\_bit:
+- Checks if the index is within the range of the bits in an unsigned long integer (sizeof(unsigned long int) * 8); if not, returns -1.
+- Uses a bitwise AND operation to clear the bit at the specified index in the value pointed to by n.
+- Returns 1 to indicate success.
 ###
 Compile using the following code:
 ```sh
