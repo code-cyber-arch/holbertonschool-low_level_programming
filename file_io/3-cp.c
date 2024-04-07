@@ -1,73 +1,89 @@
 #include "main.h"
 
 /**
- * handle_error - Handles file-related errors.
- * @src_fd: The file descriptor of the source file.
- * @dest_fd: The file descriptor of the destination file.
- * @src_file: The name of the source file.
+ * check_open_files - Checks if files can be opened.
+ * @src_fd: File descriptor of the source file.
+ * @dest_fd: File descriptor of the destination file.
+ * @argv: Arguments vector.
  */
-
-void handle_error(int src_fd, int dest_fd, const char *src_file)
+void check_open_files(int src_fd, int dest_fd, char *argv[])
 {
 	if (src_fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src_file);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	if (dest_fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to destination file\n");
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 }
 
 /**
- * copy_file - Copies the content of one file to another file.
- * @src_file_name: The name of the source file.
- * @dest_file_name: The name of the destination file.
+ * copy_files - Copies the contents of one file to another.
+ * @src_fd: File descriptor of the source file.
+ * @dest_fd: File descriptor of the destination file.
  */
-
-void copy_file(const char *src_file_name, const char *dest_file_name)
+void copy_files(int src_fd, int dest_fd)
 {
-	int src_fd, dest_fd;
-	ssize_t bytes_read, bytes_written;
-	char buffer[1024];
+	ssize_t nchars, nwr;
+	char buf[1024];
 
-	src_fd = open(src_file_name, O_RDONLY);
-	dest_fd = open(dest_file_name, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	handle_error(src_fd, dest_fd, src_file_name);
-
-	bytes_read = 1024;
-	while (bytes_read == 1024)
+	nchars = 1024;
+	while (nchars == 1024)
 	{
-		bytes_read = read(src_fd, buffer, 1024);
-		if (bytes_read == -1)
-			handle_error(-1, 0, src_file_name);
-		bytes_written = write(dest_fd, buffer, bytes_read);
-		if (bytes_written == -1)
-			handle_error(0, -1, src_file_name);
+		nchars = read(src_fd, buf, 1024);
+		if (nchars == -1)
+			check_open_files(-1, 0, NULL);
+		nwr = write(dest_fd, buf, nchars);
+		if (nwr == -1)
+			check_open_files(0, -1, NULL);
 	}
-
-	close(src_fd);
-	close(dest_fd);
 }
 
 /**
- * main - Entry point
- * @argc: The number of command line arguments.
- * @argv: An array containing the command line arguments.
- *
+ * close_files - Closes the file descriptors.
+ * @src_fd: File descriptor of the source file.
+ * @dest_fd: File descriptor of the destination file.
+ */
+void close_files(int src_fd, int dest_fd)
+{
+	int err_close;
+
+	err_close = close(src_fd);
+	if (err_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src_fd);
+		exit(100);
+	}
+	err_close = close(dest_fd);
+	if (err_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest_fd);
+		exit(100);
+	}
+}
+
+/**
+ * main - Entry point of the program.
+ * @argc: Number of arguments.
+ * @argv: Arguments vector.
  * Return: Always 0.
  */
-
 int main(int argc, char *argv[])
 {
+	int src_fd, dest_fd;
+
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Usage: cp source_file destination_file");
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
-
-	copy_file(argv[1], argv[2]);
+	src_fd = open(argv[1], O_RDONLY);
+	dest_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	check_open_files(src_fd, dest_fd, argv);
+	copy_files(src_fd, dest_fd);
+	close_files(src_fd, dest_fd);
 	return (0);
 }
