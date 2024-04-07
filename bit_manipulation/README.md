@@ -48,6 +48,11 @@ Compile using the following code:
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-get_bit.c -o c
 ```
 ## Set the value of a bit to 1 at a given index
+This function, set\_bit:
+- Checks if the index is greater than or equal to the number of bits in an unsigned long integer (sizeof(unsigned long int) * 8); if true, returns -1 as the index is out of range.
+- Uses a bitwise XOR operation (^=) between the value pointed to by n and a bit mask created by left-shifting 1 by the index (1 << index) to set the bit at the specified index to its opposite value.
+- This operation toggles the bit at the index: if it was 0, it becomes 1, and if it was 1, it becomes 0.
+- Returns 1 to indicate success.
 ###
 Compile using the following code:
 ```sh
