@@ -7,7 +7,7 @@
  * @src_file: The name of the source file.
  */
 
-void handle_error(int src_fd, int dest_fd, char *src_file)
+void handle_error(int src_fd, int dest_fd, const char *src_file)
 {
 	if (src_fd == -1)
 	{
