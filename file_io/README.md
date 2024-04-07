@@ -7,6 +7,12 @@ File I/O in C involves reading from and writing to files. Here's a summary:
 - Error Handling: Check return values for errors.
 ## Read a text file and prints it to the POSIX standard output
 
+This function, read\_textfile,  reads a specified amount of characters from a text file and prints them to the standard output:
+- Initial Checks: It returns 0 if the provided filename is NULL or if memory allocation for the read buffer fails, ensuring it only proceeds with valid input and available memory.
+- File Opening: Opens the specified file for reading. If this fails (e.g., file doesn't exist), it cleans up and exits.
+- Reading Content: Reads up to the specified number of letters (letters) from the file into a buffer. It aborts on read errors, freeing resources.
+- Printing Content: Writes the content read into the buffer to the standard output. If this write operation fails or doesn't write the expected number of bytes, it performs cleanup.
+- Cleanup and Return: Frees the allocated buffer and closes the file descriptor before returning. The number of bytes successfully written to standard output is returned, indicating success.
 ###
 Compile using the following code:
 ```sh
