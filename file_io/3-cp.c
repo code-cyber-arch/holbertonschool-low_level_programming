@@ -30,16 +30,19 @@ void copy_files(int src_fd, int dest_fd)
 	ssize_t nchars, nwr;
 	char buf[1024];
 
-	nchars = 1024;
-	while (nchars == 1024)
+	while ((nchars = read(src_fd, buf, 1024)) > 0)
 	{
-		nchars = read(src_fd, buf, 1024);
-		if (nchars == -1)
-			check_open_files(-1, 0, NULL);
 		nwr = write(dest_fd, buf, nchars);
 		if (nwr == -1)
 			check_open_files(0, -1, NULL);
+		else if (nwr != nchars)
+		{
+			dprintf(STDERR_FILENO, "Error: Could not write all bytes to file\n");
+			exit(99);
+		}
 	}
+	if (nchars == -1)
+		check_open_files(-1, 0, NULL);
 }
 
 /**
