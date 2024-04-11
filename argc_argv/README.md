@@ -1,1 +1,2 @@
-C - argc, argv
+# C - argc, argv
+In C programming, argc and argv are commonly used to handle command-line arguments. argc (argument count) holds the number of arguments passed to the program from the command line, including the program's name. argv (argument vector) is a pointer array that points to each argument passed to the program. The first element (argv[0]) is always the program's name, and subsequent elements contain the actual arguments. These values allow a C program to process input from the command line, enabling more flexible and interactive program behavior.
