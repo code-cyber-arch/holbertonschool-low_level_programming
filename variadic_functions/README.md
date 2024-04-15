@@ -89,9 +89,22 @@ Compile with this line of code, ensuring that the supporting files are included 
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-print_all.c -o d
 ```
-
 ## 100 - Assembly that prints Hello, World
+This assembly program, [100-hello\_world.asm](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/variadic_functions/100-hello_world.asm) is a simple example of a Linux assembly application that outputs the string "Hello, World" followed by a newline character to the standard output (stdout). The program is written using NASM syntax and specifically targets the Linux operating system using the x86 architecture:
 
+- Sections and Data Definition:
+	- The program contains two sections: .text for the code and .data for data definitions.
+	- In the .data section, msg is defined as a byte array containing the string "Hello, World" followed by a newline (0xa). The len label is defined using equ to calculate the length of the msg string automatically by subtracting the address of msg from the current address ($).
+- Program Execution:
+	- The .text section starts with the main: label, marking the entry point of the program.
+	- Registers are set up for a Linux system call: edx is loaded with len (the length of the message), ecx is loaded with the address of msg (the message to print), ebx is set to 1 (indicating file descriptor 1, which is stdout), and eax is set to 4 (the syscall number for sys\_write on Linux).
+	- The int 0x80 instruction triggers the interrupt that makes the syscall happen, which executes the write operation.
+	- After printing the message, eax is set to 0 (the return value for the program indicating successful execution), and another int 0x80 is executed to call sys\_exit to cleanly exit the program.
+- Functionality and Flow:
+	- The program demonstrates basic assembly programming techniques, including making system calls, setting up registers, and defining data.
+	- It primarily showcases how to perform output operations at a low level in a Linux environment using assembly language, handling basic string data and system call interrupts.
+###
+This code is an introductory example of system-level programming on Linux, providing insights into the workings of system calls, register management, and basic I/O operations in assembly language.
 ###
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/variadic_functions/build)
 ```sh
