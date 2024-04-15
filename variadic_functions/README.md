@@ -44,9 +44,23 @@ Compile with this line of code, ensuring that the supporting files are included 
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-print_numbers.c -o b
 ```
-
 ## 2 - Print strings
-
+The C program, [2-print\_strings.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/variadic_functions/2-print_strings.c) defines a function print\_strings that prints a sequence of strings, optionally separated by a specified string, and terminates the output with a newline:
+- Purpose: To print a given number of strings in sequence, with each string potentially separated by a user-defined string, and conclude with a newline for clean formatting.
+- Parameters:
+	- separator: A string that is printed between each string in the sequence, which can be NULL if no separation is desired.
+	- n: The count of strings to print.
+	- ...: Indicates a variable number of string arguments to be printed.
+- Implementation:
+	- A va\_list named list is used to manage the variable number of string arguments.
+	- va\_start(list, n) initializes the va\_list to fetch the arguments specified after n.
+	- The function iterates over each string (total of n):
+		- Each string is retrieved using va_arg(list, char *).
+		- If the string is not NULL, it is printed using printf. If it is NULL, the function prints (nil) to handle null pointers gracefully.
+		- If there is a separator defined and it's not the last string, the separator is printed after the string.
+	- After all strings are printed, a newline character is added.
+	- va\_end(list) concludes the variable argument list processing.
+- Functionality: This function allows for flexible printing of multiple strings with or without separators, handling null string pointers by substituting them with "(nil)", suitable for various output formatting needs.
 ###
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/variadic_functions/build)
 ```sh
