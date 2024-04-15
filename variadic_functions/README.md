@@ -66,9 +66,24 @@ Compile with this line of code, ensuring that the supporting files are included 
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-print_strings.c -o c
 ```
-
 ## 3 - Print anything
-
+The C program, [3-print\_all.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/variadic_functions/3-print_all.c) print\_all is designed to print any combination of data types, specified by a format string, with arguments passed in a variadic manner:
+- Purpose: To provide a flexible function capable of printing different types of data (characters, integers, floats, and strings) based on a provided format string.
+- Parameters:
+	- format: A string consisting of characters where each character ('c', 'i', 'f', 's') indicates the type of the subsequent argument (char, int, float, string respectively).
+- Implementation:
+	- The function uses a va\_list named list for managing the variable arguments.
+	- It starts by initializing the va\_list with va\_start(list, format).
+	- The outer loop traverses the format string to determine the type of each argument.
+	- An inner loop checks if a comma should be added before the current item by comparing the current format character against a predefined string format\_arg[] = "cifs", ensuring elements are separated in the output after the first element.
+	- A switch statement handles each type of data:
+		- 'c' for character: uses %c specifier.
+		- 'i' for integer: uses %d specifier.
+		- 'f' for float: uses %f specifier.
+		- 's' for string: checks if the pointer is NULL and prints (nil) if true, otherwise prints the string using %s.
+	- Each case sets a flag c to indicate that at least one item has been printed, which is used to control comma insertion.
+	- After processing all arguments, it prints a newline, and va\_end(list) is called to clean up the va\_list.
+- Functionality: print\_all adeptly handles multiple data types in a single function call, printing them in a formatted sequence based on the specified format string, making it highly versatile for varied output needs. This approach facilitates the creation of complex output formats without needing multiple print statements, simplifying code and enhancing maintainability.
 ###
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/variadic_functions/build)
 ```sh
