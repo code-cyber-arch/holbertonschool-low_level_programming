@@ -46,7 +46,12 @@ Compile with this line of code, ensuring that the supporting files are included 
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89  2-main.c 2-strlen_recursion.c -o 2-strlen_recursion
 ```
 ## 3 - Return the factorial of a given number
-
+The C function, [factorial](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/recursion/3-factorial.c), calculates the factorial of a non-negative integer using recursion:
+- Function Definition: It takes one parameter, n, which is the integer for which the factorial is to be computed.
+- Base Cases: The function first checks if n is less than 0. If so, it returns -1, indicating an invalid input. If n is 0, it returns 1, as the factorial of 0 is defined to be 1.
+- Recursive Logic: If n is positive, the function calculates the factorial by multiplying n with the factorial of n-1, recursively calling itself with the argument n-1 until it reaches the base case of n being 0.
+- Return Value: The function ultimately returns the factorial of n, calculated by multiplying n with the factorial of n-1.
+- Purpose: This function showcases how recursion can be used to solve mathematical problems, in this case, computing factorials. It elegantly handles the base cases and utilizes the call stack to compute factorials for larger numbers by breaking the problem into smaller, more manageable sub-problems.
 
 ###
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/recursion/build)
