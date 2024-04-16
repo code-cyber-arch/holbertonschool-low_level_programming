@@ -64,3 +64,18 @@ Compile with this line of code, ensuring that the supporting files are included 
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-alloc_grid.c -o 3-alloc_grid
 ```
+
+## 4 - Free a 2 dimensional grid previously created
+
+This C program, [4-free\_grid.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/4-free_grid.c) defines a function free\_grid to free the memory allocated for a 2D array of integers:
+- Function Definition: The function takes two arguments, grid (the 2D array to be freed) and height (the height of the 2D array).
+- Memory Deallocation: It iterates through each row of the 2D array and frees the memory allocated for that row using free.
+- Nullifying Pointers: After freeing each row, it sets the corresponding pointer in grid to NULL, ensuring that no dangling pointers remain.
+- Final Freeing: Once all rows have been freed, it frees the memory allocated for the array of pointers (grid itself).
+- Nullifying Grid Pointer: Finally, it sets the grid pointer itself to NULL to prevent any accidental access to the freed memory.
+- Description: This function provides a way to safely free the memory allocated for a 2D array of integers, ensuring that all memory is properly deallocated and pointers are set to NULL to prevent access to freed memory.
+###
+Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 3-alloc_grid.c 4-free_grid.c -o 4-free_grid
+```
