@@ -79,3 +79,20 @@ Compile with this line of code, ensuring that the supporting files are included 
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 3-alloc_grid.c 4-free_grid.c -o 4-free_grid
 ```
+
+## 100 - Concatenate all the arguments of your program
+
+This C program, [100-argstostr.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/100-argstostr.c), defines a function argstostr to concatenate arguments of a program:
+- Function Definition: The function takes two arguments, ac (argument count) and av (argument vector).
+- Input Validation: It first checks if ac is 0 or av is NULL, returning NULL if either condition is true, indicating failure or invalid input.
+- Calculating Length: It then calculates the total length needed for the concatenated string by iterating through each argument in av and adding the length of each argument plus one (for the newline character).
+- Memory Allocation: The function dynamically allocates memory for the concatenated string (rtn) using malloc, ensuring enough space for the concatenated string and a null terminator.
+- Concatenation: It iterates through each argument in av, copying each character into rtn and adding a newline character after each argument.
+- Finalizing String: It adds a null terminator at the end of the concatenated string.
+- Return Value: Finally, it returns a pointer to the concatenated string (rtn), or NULL if memory allocation fails or ac is 0.
+
+###
+Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-argstostr.c -o args
+```
