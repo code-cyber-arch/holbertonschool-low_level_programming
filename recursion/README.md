@@ -31,7 +31,15 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c 1-main.c 1-print_rev_r
 ```
 ## 2 - Return the length of a string
 
-
+The C function [\_strlen\_recursion](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/recursion/2-strlen_recursion.c) calculates the length of a string using a recursive approach:
+- Function Definition: It accepts one parameter, s, which is a pointer to the string whose length is to be determined.
+- Recursive Logic: The function checks if the current character pointed to by s is not the null character (\\0). If it is not the null character:
+	- The function increments a counter i by one.
+	- It then calls itself with the next character of the string (s + 1) and adds the result to i. This process moves through the string character by character, incrementing for each character until it hits the null terminator of the string.
+- Termination and Return: When the function reaches the null character, it stops calling itself recursively and begins to return back up the call stack, summing up the increments to calculate the total length of the string.
+- Return Value: The function ultimately returns the total count of characters in the string, not including the null terminator, which is the length of the string.
+###
+This function effectively demonstrates how recursion can replace a traditional loop in determining the length of a string, leveraging the call stack to accumulate the total count.
 ###
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/recursion/build)
 ```sh
