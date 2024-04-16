@@ -33,3 +33,19 @@ Compile with this line of code, ensuring that the supporting files are included 
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-strdup.c -o s
 ```
+## 2 - Concatenate two strings
+
+This C program defines a function [str\_concat]() to concatenate two strings:
+- Function Definition: The function takes two arguments, s1 and s2, which are the strings to be concatenated.
+- Input Validation: It checks if either s1 or s2 is NULL and sets them to empty strings if so, ensuring that concatenation can proceed safely.
+- Calculating String Lengths: It calculates the lengths of s1 and s2 by iterating through each string's characters until the null terminator is reached.
+- Memory Allocation: The function dynamically allocates memory for the concatenated string (conc\_str) using malloc, ensuring enough space for both strings and a null terminator.
+- String Concatenation: It then copies each character of s1 and s2 into conc\_str using loops, combining the strings into a single string.
+- Return Value: Finally, it returns a pointer to the concatenated string (conc\_str), or NULL if memory allocation fails.
+###
+This function provides a way to concatenate two strings into a new string, handling cases where either or both input strings are NULL.
+###
+Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-str_concat.c -o 2-str_concat
+```
