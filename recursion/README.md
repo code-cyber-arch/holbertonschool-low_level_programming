@@ -60,6 +60,12 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-factorial.c -o 3-facto
 ```
 ## 4 - Return the value of x raised to the power of y
 
+The C function [\_pow\_recursion](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/recursion/4-pow_recursion.c) calculates the value of a base number raised to an exponent using recursion:
+- Function Definition: It takes two parameters, x (the base number) and y (the exponent).
+- Base Cases: The function first checks if y is less than 0. If so, it returns -1, indicating an invalid input for negative exponents. If y is 0, it returns 1, as any number raised to the power of 0 is 1.
+- Recursive Logic: If y is positive, the function calculates x raised to the power of y by multiplying x with the result of \_pow\_recursion(x, y - 1), which is the result of raising x to the power of y - 1. This process continues recursively until y reaches 0.
+- Return Value: The function ultimately returns the result of x raised to the power of y.
+- Purpose: This function demonstrates how recursion can be used to solve mathematical problems, such as exponentiation, by breaking down the problem into smaller, more manageable sub-problems. It elegantly handles both positive and negative exponents, providing the correct result for each case.
 
 ###
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/recursion/build)
