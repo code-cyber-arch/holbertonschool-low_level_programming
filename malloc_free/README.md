@@ -16,3 +16,20 @@ Compile with this line of code, ensuring that the supporting files are included 
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-create_array.c -o a
 ```
+
+## 1 - Return a pointer to a newly allocated space in memory, contains a copy of the string given as a parameter
+
+This C program defines a function [\_strdup](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/1-strdup.c) to duplicate a string up to the newline character:
+- Function Definition: The function takes a single argument, str, which is the string to be duplicated.
+- Input Validation: It first checks if str is NULL, returning NULL if true, indicating failure or an invalid input.
+- Duplicating the String: It then iterates through the characters of str to find the length of the string, excluding the newline character.
+- Memory Allocation: The function dynamically allocates memory for the duplicated string (dup\_str) using malloc, ensuring enough space for the string and a null terminator.
+- String Duplication: It copies each character of str into dup\_str using a loop, excluding the newline character, and adds a null terminator at the end.
+- Return Value: Finally, the function returns a pointer to the duplicated string (dup\_str), or NULL if memory allocation fails or str is NULL.
+###
+This function provides a way to duplicate strings, excluding the newline character, and is useful in scenarios where you need to manipulate or process strings without including newline characters.
+###
+Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-strdup.c -o s
+```
