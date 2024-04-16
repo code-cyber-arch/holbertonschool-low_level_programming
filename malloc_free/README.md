@@ -19,7 +19,7 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-create_array.c -o a
 
 ## 1 - Return a pointer to a newly allocated space in memory, contains a copy of the string given as a parameter
 
-This C program defines a function [\_strdup](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/1-strdup.c) to duplicate a string up to the newline character:
+This C program, [1-strdup.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/1-strdup.c) defines a function \_strdup to duplicate a string up to the newline character:
 - Function Definition: The function takes a single argument, str, which is the string to be duplicated.
 - Input Validation: It first checks if str is NULL, returning NULL if true, indicating failure or an invalid input.
 - Duplicating the String: It then iterates through the characters of str to find the length of the string, excluding the newline character.
@@ -95,4 +95,17 @@ This C program, [100-argstostr.c](https://github.com/amirasabdu/holbertonschool-
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-argstostr.c -o args
+```
+
+## 101 - Split a string into words
+This C program, [101-strtow.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/101-strtow.c) consists of two functions:
+
+- free\_g Function: This function frees a 2D array of characters. It takes two arguments, \_g (the array to be freed) and i (the height of the array). It first checks if \_g is not NULL and i is not 0. If so, it iterates through each row of the array and frees the memory allocated for that row using free. Finally, it frees the memory allocated for the array of pointers (\_g itself).
+
+- strtow Function: This function splits a string into words. It takes a single argument, str, which is the string to be split. It first calculates the number of words in the string by counting sequences of non-space characters followed by a space or the end of the string. It then allocates memory for an array of strings (array) to store the words, plus an additional NULL pointer at the end. If memory allocation fails or no words are found, it frees the memory allocated for array and returns NULL. Next, it iterates through each word in the string, allocates memory for the word in array[i], copies the characters of the word into array[i], and adds a null terminator at the end. Finally, it adds a NULL pointer at the end of array to mark the end of the array of strings and returns array.
+
+###
+Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 101-main.c 101-strtow.c -o strtow
 ```
