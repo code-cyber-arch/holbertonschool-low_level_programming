@@ -35,7 +35,7 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-strdup.c -o s
 ```
 ## 2 - Concatenate two strings
 
-This C program defines a function [str\_concat]() to concatenate two strings:
+This C program, [2-str\_concat.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/2-str_concat.c), defines a function str\_concat to concatenate two strings:
 - Function Definition: The function takes two arguments, s1 and s2, which are the strings to be concatenated.
 - Input Validation: It checks if either s1 or s2 is NULL and sets them to empty strings if so, ensuring that concatenation can proceed safely.
 - Calculating String Lengths: It calculates the lengths of s1 and s2 by iterating through each string's characters until the null terminator is reached.
@@ -48,4 +48,19 @@ This function provides a way to concatenate two strings into a new string, handl
 Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
 ```sh
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-str_concat.c -o 2-str_concat
+```
+
+## 3 - Return a pointer to a 2 dimensional array of integers
+This C program, [3-alloc\_grid.c](https://github.com/amirasabdu/holbertonschool-low_level_programming/blob/main/malloc_free/3-alloc_grid.c), defines a function alloc\_grid to allocate memory for a 2D array of integers:
+- Function Definition: The function takes two arguments, width and height, which specify the dimensions of the 2D array.
+- Input Validation: It checks if either width or height is less than or equal to 0 and returns NULL if so, indicating an invalid input.
+- Memory Allocation: It first allocates memory for an array of height integer pointers (array) using malloc.
+- Row Allocation: For each row in the 2D array, it allocates memory for width integers and assigns the pointer to array[i].
+- Error Handling: If memory allocation fails for any row, it frees the memory allocated for the previous rows and the array of pointers, and returns NULL.
+- Initialization: It then initializes each element of the 2D array to 0.
+- Return Value: Finally, it returns a pointer to the allocated 2D array (array), or NULL if memory allocation fails at any point.
+###
+Compile with this line of code, ensuring that the supporting files are included in the [build](https://github.com/amirasabdu/holbertonschool-low_level_programming/tree/main/malloc_free/build)
+```sh
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-alloc_grid.c -o 3-alloc_grid
 ```
